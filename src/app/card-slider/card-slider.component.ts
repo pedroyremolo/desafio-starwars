@@ -20,6 +20,7 @@ export class CardSliderComponent implements OnInit {
   }
 
   nextPlanet() {
+    if (this.currentPlanet) { this.currentPlanet = null; }
     this.planetService.getRandomPlanet().subscribe((planet) => {
       this.currentPlanet = planet;
     });
