@@ -1,11 +1,11 @@
-      <div class="card">
+      <div class="card" *ngIf="content">
         <h1 class="card__title">
-          Planet Name
+          {{content.name}}
         </h1>
         <ul class="card__content-list">
-          <li>Population: 200000</li>
-          <li>Climate: Arid</li>
-          <li>Terrain: Desert</li>
-          <li>Featured in NFilms</li>
+          <li>Population: {{content.population}}</li>
+          <li>Climate: {{content.climate}}</li>
+          <li>Terrain: {{content.terrain}}</li>
+          <li>Featured in {{content.films.length}} Films</li>
         </ul>
       </div>

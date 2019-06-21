@@ -1,6 +1,6 @@
 <section class="card-slider">
   <main>
-    <dsw-card></dsw-card>
+    <dsw-card [content]="currentPlanet"></dsw-card>
   </main>
-  <button class="btn-next">Next</button>
+  <button class="btn-next" (click)="nextPlanet()">Next</button>
 </section>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Planet} from '../../tools/models/planet.model';
 
 @Component({
   selector: 'dsw-card',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  constructor() { }
+  @Input() content: Planet;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
