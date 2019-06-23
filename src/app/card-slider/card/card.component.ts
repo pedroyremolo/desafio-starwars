@@ -17,7 +17,7 @@ import {Planet} from '../../tools/models/planet.model';
       transition(':enter', [
         style({
           opacity: 0,
-          transform: 'perspective(400px) translateZ(1000px)'
+          transform: 'perspective(400px) translateZ(-1000px)'
         }),
         animate('1s ease-in', style({
           opacity: 1,

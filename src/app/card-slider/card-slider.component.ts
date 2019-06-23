@@ -11,6 +11,7 @@ import {Planet} from '../tools/models/planet.model';
 export class CardSliderComponent implements OnInit {
 
   currentPlanet: Planet;
+  isLoading = true;
 
   constructor(private planetService: PlanetService) {
   }
@@ -20,10 +21,12 @@ export class CardSliderComponent implements OnInit {
   }
 
   nextPlanet() {
+    this.isLoading = true;
     if (this.currentPlanet) { this.currentPlanet = null; }
     this.planetService.getRandomPlanet().subscribe((planet) => {
       this.currentPlanet = planet;
     });
+    this.isLoading = !this.isLoading;
   }
 
 }

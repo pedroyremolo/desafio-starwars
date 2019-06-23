@@ -2,5 +2,5 @@
   <main>
     <dsw-card [content]="currentPlanet"></dsw-card>
   </main>
-  <button class="btn-next" (click)="nextPlanet()">Next</button>
+  <button *ngIf="!isLoading" class="btn-next" (click)="nextPlanet()">Next</button>
 </section>

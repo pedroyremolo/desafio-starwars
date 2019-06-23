@@ -1,6 +1,7 @@
 .card
   background: #000
   width: 30vw
+  min-width: 400px
   height: 50vh
   border: 2px solid #fcee52
   border-radius: 8px
@@ -8,7 +9,7 @@
 
   .card__title
     text-align: center
-    color: yellow
+    color: #fff
     padding: 3% 1%
     border-bottom: 2px solid #fcee52
 
@@ -20,3 +21,6 @@
     flex-direction: column
     justify-content: space-between
 
+@media (max-width: 768px)
+  .card
+    min-width: 350px
