@@ -22,10 +22,20 @@ export class CardSliderComponent implements OnInit {
 
   nextPlanet() {
     this.isLoading = true;
-    if (this.currentPlanet) { this.currentPlanet = null; }
-    this.planetService.getRandomPlanet().subscribe((planet) => {
-      this.currentPlanet = planet;
-    });
+
+    if (this.currentPlanet) {
+      this.currentPlanet = null;
+    }
+
+    this.planetService.getRandomPlanet().subscribe(
+      (planet) => {
+        this.currentPlanet = planet;
+      },
+      (err) => {
+        console.log(`Error ${err.message} at ${new Date()}`);
+        this.currentPlanet = this.planetService.planetError;
+      });
+
     this.isLoading = !this.isLoading;
   }
 

@@ -1,31 +1,34 @@
-section
-  display: flex
-  flex-direction: column
-  align-items: center
+@import "~src/assets/styles/variables"
+@import '~src/assets/styles/mixins'
 
-/************ Next Button **************/
+section
+  @include d-flex-column-align-center
+
 .btn-next
-  background: #000
+  background: $accent-color
   position: absolute
   bottom: 5%
-  color: #fcee52
+  color: $primary-color
   font-size: 1.6rem
-  font-family: 'Lato', sans-serif
+  font-family: $highlight-font
+  font-weight: 700
   text-transform: uppercase
   padding: 1% 3%
-  border: #fcee52 2px solid
-  border-radius: 10px
+  border: $border
+  border-radius: $border-radius
   cursor: pointer
-  transition: color 3s ease-out
+  transition: color 500ms ease-out, background 300ms linear
   outline: none
 
   &:hover
-    background: #fcee52
-    color: #000
+    background: $primary-color
+    color: $accent-color
 
-  &:focus
-    background: #000
-    color: #fcee52
-  &:active
-    background: #fcee52
-    color: #000
+  @media (max-width: 768px)
+    .btn-next
+      &:focus
+        background: $accent-color
+        color: $primary-color
+      &:active
+        background: $primary-color
+        color: $accent-color

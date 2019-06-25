@@ -2,49 +2,52 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {environment} from '../../../environments/environment';
 
 import {Planet} from '../models/planet.model';
+import {getRandomInteger} from '../helpers/random-integer.helper';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlanetService {
 
-  count: number;
+  private count: number;
+  private PLANET_ERROR: Planet = {
+    name: 'Unreachable Planet: Try again',
+    rotation_period: 0,
+    orbital_period: 0,
+    diameter: 0,
+    climate: 'unknown',
+    gravity: 'unknown',
+    terrain: 'unknown',
+    surface_water: 0,
+    population: 0,
+    residents: [],
+    films: [],
+    created: new Date(),
+    edited: new Date(),
+    url: 'unknown'
+  };
 
   constructor(private http: HttpClient) {
-  }
-
-  getPlanetList(page?: number): Observable<Planet[]> {
-    if (page) {
-      return this.http
-        .get<any>(`https://swapi.co/api/planets/?page=${page}`)
-        .pipe(map((resp) => {
-          this.count = resp.count;
-          return resp.results as Planet[];
-        }));
-    }
-
-    return this.http
-      .get<any>('https://swapi.co/api/planets/')
-      .pipe(map((resp) => {
-        this.count = resp.count;
-        return resp.results as Planet[];
-      }));
   }
 
   getRandomPlanet(): Observable<Planet> {
     if (!this.count) {
       return this.http
-        .get<any>('https://swapi.co/api/planets/')
+        .get<any>(`${environment.apiHost}/planets/`)
         .pipe<Planet>(map((resp) => {
           this.count = resp.count;
-          return resp.results[Math.floor(Math.random() * (resp.results.length + 1))];
+          return resp.results[getRandomInteger(resp.results.length)];
         }));
     }
-    const randomPlanetNumber = Math.floor(Math.random() * (this.count + 1));
 
     return this.http
-      .get<any>(`https://swapi.co/api/planets/${randomPlanetNumber}`);
+      .get<any>(`${environment.apiHost}/planets/${getRandomInteger(this.count)}`);
+  }
+
+  get planetError() {
+    return this.PLANET_ERROR;
   }
 }

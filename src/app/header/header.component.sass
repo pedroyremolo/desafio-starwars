@@ -1,12 +1,12 @@
+@import "~src/assets/styles/variables"
+@import '~src/assets/styles/mixins'
+
 .content
   width: 100%
   padding: 3%
-  color: #fff
-  display: flex
-  flex-direction: column
-  align-items: center
+  color: $text-color
+  @include d-flex-column-align-center
 
-
-@media (max-width: 768px)
-  .content img
-    width: 70%
+  @media (max-width: 768px)
+    img
+      width: 70%
