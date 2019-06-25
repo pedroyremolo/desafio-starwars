@@ -1,6 +1,10 @@
-# DesafioStarWars
+# Star Wars Trivia Challenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
+Project of the Star Wars Trivia challenge made with Angular 8, Sass and love! =)
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
+
+Uses [Firebase CLI](https://firebase.google.com/docs/cli) for production deploys.
 
 ## Development server
 
@@ -14,13 +18,9 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## Deploy
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Run `npm run deploy` to build for production and deploy the project on Firebase.
 
 ## Further help
 
