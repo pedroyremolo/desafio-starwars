@@ -11,10 +11,6 @@
   border-radius: $border-radius
   margin: 1% 0.5%
 
-  @media (max-width: 768px)
-    min-width: 300px
-    max-height: 400px
-
   .card__title
     text-align: center
     color: $text-color
@@ -23,7 +19,25 @@
 
   .card__content-list
     color: $text-color
-    height: 70%
-    padding: 3% 10%
+    height: 50%
+    padding: 5% 10%
     @include d-flex-column
     justify-content: space-between
+
+  .card__footer
+    color: $text-color
+    text-align: center
+    font-size: 1.8rem
+    font-weight: bold
+    padding: 7% 5%
+
+  .text-highlight
+    color: $primary-color
+
+  @media (max-width: $small-screens)
+    min-width: 300px
+    max-height: 400px
+
+    .card__footer
+        font-size: 1.4rem
+        padding: 3%

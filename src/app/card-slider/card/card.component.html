@@ -3,9 +3,9 @@
           {{content.name}}
         </h1>
         <ul class="card__content-list">
-          <li>Population: {{content.population}}</li>
-          <li>Climate: {{content.climate}}</li>
-          <li>Terrain: {{content.terrain}}</li>
-          <li>Featured in {{content.films.length}} Films</li>
+          <li>Population: <span class="text-highlight">{{content.population}}</span></li>
+          <li>Climate: <span class="text-highlight">{{content.climate}}</span></li>
+          <li>Terrain: <span class="text-highlight">{{content.terrain}}</span></li>
         </ul>
+        <p class="card__footer">Featured in <span class="text-highlight">{{content.films.length}}</span> Films</p>
       </div>

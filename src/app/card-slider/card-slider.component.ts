@@ -11,7 +11,7 @@ import {Planet} from '../tools/models/planet.model';
 export class CardSliderComponent implements OnInit {
 
   currentPlanet: Planet;
-  isLoading = true;
+  isLoading = false;
 
   constructor(private planetService: PlanetService) {
   }
@@ -21,8 +21,6 @@ export class CardSliderComponent implements OnInit {
   }
 
   nextPlanet() {
-    this.isLoading = true;
-
     if (this.currentPlanet) {
       this.currentPlanet = null;
     }
@@ -35,8 +33,6 @@ export class CardSliderComponent implements OnInit {
         console.log(`Error ${err.message} at ${new Date()}`);
         this.currentPlanet = this.planetService.planetError;
       });
-
-    this.isLoading = !this.isLoading;
   }
 
 }
